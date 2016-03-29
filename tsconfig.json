@@ -1,0 +1,35 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "declaration": true,
+    "module": "commonjs",
+    "target": "es5",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "jsx": "react"
+  },
+  "files": [
+    "./src/AutocompleteSearchBox.tsx",
+    "./src/SuggestionSource.tsx",
+    "./src/index.ts",
+    "./test/e2e/ExampleSpec.ts",
+    "./test/server/app/index.tsx",
+    "./test/unit/ExampleSpec.tsx",
+    "./typings/main.d.ts"
+  ],
+  "filesGlob": [
+    "./src/**/*.tsx",
+    "./src/**/*.ts",
+    "./test/**/*.ts",
+    "./test/**/*.tsx",
+    "./typings/main.d.ts"
+  ],
+  "exclude": [],
+  "atom": {
+    "rewriteTsconfig": true
+  }
+}
