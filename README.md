@@ -1,4 +1,5 @@
-searchkit component boilerplate (Typescript + webpack)
+This autocomplete is still in development, we hope to release it soon
+
 
 ```shell
 npm install
