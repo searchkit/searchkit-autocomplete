@@ -12,7 +12,7 @@ import "./index.scss"
 class SuggestionItemRenderer extends React.Component<any,any> {
   render() {
     return (
-      <div key={this.props.text}>{this.props.text}</div>
+      <div key={this.props.key}>{this.props.text}</div>
     )
   }
 }
