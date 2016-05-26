@@ -1,33 +1,22 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import {
-  SearchkitManager,SearchkitProvider,
-  SearchBox, Hits, RefinementListFilter, Pagination,
-  MenuFilter, HitsStats, SortingSelector, NoHits,
-  ItemList, CheckboxItemList, ItemHistogramList,
-  Tabs, TagCloud, Toggle, Select
-} from "searchkit";
+import {SearchBox, SuggestionSource} from "../../../src/index";
 
-import {AutocompleteSearchBox} from "../../../src/index";
-import {SuggestionSource} from "../../../src/index"
+const countriesJSON = require("../../../src/data/countries.json")
+const citiesJSON = require("../../../src/data/us-cities.json")
 
-const host = "http://demo.searchkit.co/api/movies"
-const searchkit = new SearchkitManager(host)
-const _ = require("lodash")
+const countriesSource = new SuggestionSource(countriesJSON, "name")
+const citiesSource = new SuggestionSource(citiesJSON, 0)
 
 class App extends React.Component<any, any> {
 
   render() {
     return (
-      <SearchkitProvider searchkit={searchkit}>
-        <div>
-          <AutocompleteSearchBox>
-            <SuggestionSource/>
-          </AutocompleteSearchBox>
-        </div>
-      </SearchkitProvider>
-    );
+      <div>
+        <SearchBox sources={[countriesSource, citiesSource]}/>
+      </div>
+    )
   }
 
 }

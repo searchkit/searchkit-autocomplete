@@ -6,8 +6,8 @@ module.exports = {
   devtool:"eval",
   entry: {
     app:[
-
-      path.join(__dirname, '/app')
+      path.join(__dirname, '/app'),
+      'webpack-hot-middleware/client?reload=true'
     ]
   },
   plugins: [
@@ -30,10 +30,11 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.tsx?$/,
+        test: /\.(tsx|ts)?$/,
         loaders: ['ts'],
         exclude: /(node_modules)/
       },
+      { test: /\.json$/, loader: 'json-loader' },
       {
         test: /\.(scss|css)$/,
         loaders: ["style-loader", "css-loader", "sass-loader"]

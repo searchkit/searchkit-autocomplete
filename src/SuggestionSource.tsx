@@ -1,12 +1,24 @@
-import * as React from "react";
-import {SearchkitComponent} from "searchkit";
+import * as React from 'react'
+const filter = require("lodash/filter")
+const get = require("lodash/get")
+const map = require("lodash/map")
 
-import "./index.scss"
+export class SuggestionSource {
 
-export class SuggestionSource extends SearchkitComponent<any,any> {
+  data: [any]
+  key: string | number
 
-  render() {
-    return <div>Example component</div>
+  constructor(data:[any], key) {
+    this.data = data
+    this.key = key || ""
+  }
+
+  getSuggestions(query) {
+    const results = filter(this.data, (item) => {
+      const value = get(item, this.key, "")
+      return value.indexOf(query) != -1
+    })
+    return map(results, this.key)
   }
 
 }
